@@ -1,0 +1,14 @@
+{
+    "browser": true,
+    "devel": true,
+    "eqeqeq": false,
+    "jquery": true,
+    "smarttabs": true,
+    "undef": true,
+    "unused": false,
+    "globals": {
+        "Modernizr": false,
+        "Util": true,
+        "App": true
+    }
+}
