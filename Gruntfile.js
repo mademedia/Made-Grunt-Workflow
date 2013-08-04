@@ -13,7 +13,9 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        publicPath: 'path/to/public/directory',
+        // For a SilverStripe site this might be web/themes/themename/static'
+        // No trailing slash
+        publicPath: 'public',
 
         less: {
             dist: {
@@ -38,6 +40,7 @@ module.exports = function(grunt) {
                 separator: ';',
                 banner: '/*! <%= pkg.description %> - <%= pkg.author %> - Built <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
+            // App JS
             app: {
               src: [
                 '<%= publicPath %>/js/util.js',
@@ -46,12 +49,25 @@ module.exports = function(grunt) {
               ],
               dest: '<%= publicPath %>/js/build/app.js'
             },
+            // jQuery plugins only
+            plugins: {
+                src: ['<%= publicPath %>/js/vendor/jquery/plugins/**/*.js'],
+                dest: '<%= publicPath %>/js/build/plugins.js'
+            },
+            // Vendor code (e.g., underscore.js, webfont.js etc.)
+            vendor: {
+                // Excluding Modernizr
+                src: [
+                    '<%= publicPath %>/js/vendor/underscore-1.4.4.js'
+                ],
+                dest: '<%= publicPath %>/js/build/vendor.js'
+            }
         },
 
         uglify: {
             app: {
                 files: {
-                    '<%= publicPath %>/js/build/app.min.js': [ '<%= concat.dist.dest %>' ]
+                    '<%= publicPath %>/js/build/min/app.min.js': [ '<%= concat.vendor.dest %>',  '<%= concat.plugins.dest %>', '<%= concat.app.dest %>'  ]
                 }
             }
         },
@@ -81,6 +97,10 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'less',
         'build:js'
+    ]);
+    grunt.registerTask('build:production', [
+        'build',
+        'uglify'
     ]);
     grunt.registerTask('default', [
         'build'

@@ -1,0 +1,116 @@
+/*  ========================================================================== */
+/*  @group State & Helpers /
+/*  ========================================================================== */
+
+	// Image replacement
+	.ir, .icon, .logo {
+
+		background-color: transparent;
+		border: 0;
+		overflow: hidden;
+		// IE 6/7 fallback
+		*text-indent: -9999px;
+		&:before {
+			content: "";
+			display: block;
+			width: 0;
+			height: 150%;
+		}
+	}
+
+	// Hide from both screenreaders and browsers: h5bp.com/u
+	.hidden,
+	.is-hidden {
+		display: none !important;
+		visibility: hidden;
+	}
+
+	.js-contextual,
+	.is-contextual {
+		display: none;
+	}
+
+	.is-active {
+		display: block !important;
+		visibility: visible;
+	}
+
+	.is-shown {
+		display: block !important;
+		visibility: visible;
+		-webkit-animation: target-fade 1.5s 1;
+		-moz-animation: target-fade 1.5s 1;
+	}
+
+	// Hide only visually, but have it available for screenreaders: h5bp.com/v
+	.visuallyhidden {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+	.hide, #skip-links {
+		.visually-hidden();
+	}
+
+	// Extends the .visuallyhidden class to allow the element to be focusable
+	// when navigated to via the keyboard: h5bp.com/p
+	.visuallyhidden.focusable:active,
+	.visuallyhidden.focusable:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+
+	// Hide visually and from screenreaders, but maintain layout
+	.invisible {
+		visibility: hidden;
+	}
+
+	// Clearfix
+	.clearfix() {
+		&:before, &:after {
+			content: " ";
+			display: table;
+		}
+		&:after {
+			clear: both;
+		}
+		*zoom: 1;
+	}
+
+	.clearfix, .cf,
+	.group, .unit,
+	.l-constrained,
+	.inline-form {
+		.clearfix();
+	}
+
+/*  ========================================================================== */
+/*  @group Responsive Helpers */
+/*  ========================================================================== */
+	// The names of these classes are too device-specific and only work on block-level elements,
+	// but they work well as a broad-brush approach.
+
+	.mobile, .is-mobile { display: none; }
+	.tablet, .is-tablet { display: none; }
+	.desktop, .is-desktop { display: block; }
+
+	@media only screen and (max-width: @-site-breakpoint-medium) {
+		.mobile, .is-mobile { display: none; }
+		.tablet, .is-tablet { display: block; }
+		.desktop, .is-desktop { display: none; }
+	}
+
+	@media only screen and (max-width: @-site-breakpoint-small) {
+		.mobile, .is-mobile { display: block; }
+		.tablet, .is-tablet { display: none; }
+		.desktop, .is-desktop { display: none; }
+	}

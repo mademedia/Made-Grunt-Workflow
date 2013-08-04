@@ -1,0 +1,34 @@
+/**
+ * Example LESS file.
+ */
+
+// Less Features
+// =============
+
+@import "base/_normalize.less"; // Normalize is preferred over lesskit's reset.
+@import "lesskit/lesskit.less"; // Excluding reset
+@import "_variables.less";
+@import "_mixins.less";
+
+// The Styles
+// ==========
+// Styles are defined in the following order & groupings:
+// Base, Layout, Module, State
+
+// Base styles (reset + elements)
+@import "base/_base.less";
+
+// Layout
+// ======
+// - Layout = major components, .type-* stylyes
+// - Module = minor components, e.g., .unit-* and .area-* styles.
+// - Responsive = responsive breakpoints.
+// - State  = a state is something that augments + overrides all other styles, e.g., success or active state
+
+@import "layout/_layout.less";
+@import "module/_module.less";
+@import "breakpoints/_breakpoints.less";
+@import "state/_state.less";
+
+// Inline print styles last
+@import "_print.less";

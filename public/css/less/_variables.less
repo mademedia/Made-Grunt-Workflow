@@ -1,0 +1,96 @@
+// -------------------------------------------------------- //
+// Variables
+// -------------------------------------------------------- //
+
+// -------------------------------------------------------- //
+// Lesskit
+// -------------------------------------------------------- //
+
+// Should really always be 16px / 100% then use
+// .font-size() from _mixins.less elsewhere to provide a rem+px font-size.
+@-lesskit-font-size-px: 16px;
+@-lesskit-font-size-unitless: 16;
+@-lesskit-line-height-px: 24px;
+@-lesskit-line-height-unitless: 24;
+
+// Grid
+@-lesskit-grid-columns: 12;
+@-lesskit-grid-column-width: 6.5%;
+@-lesskit-grid-gutter-width: 2%;
+
+// Default text colours
+@-lesskit-color-text: #343434;
+@-lesskit-color-headers: #343434;
+@-lesskit-color-link: #343434;
+@-lesskit-color-link-hover: #ddd;
+@-lesskit-color-link-active: #000;
+@-lesskit-color-link-visited: #343434;
+
+// Default heading sizes
+@-lesskit-heading-size-1: 2em;
+@-lesskit-heading-size-2: 1.6em;
+@-lesskit-heading-size-3: 1.4em;
+@-lesskit-heading-size-4: 1.2em;
+@-lesskit-heading-size-5: 1.1em;
+@-lesskit-heading-size-6: 1em;
+
+// -------------------------------------------------------- //
+// Site Specific
+// -------------------------------------------------------- //
+
+@-site-color-brand: goldenrod;
+@-site-color-primary: goldenrod;
+@-site-color-secondary: aquamarine;
+@-site-color-highlight: orange;
+
+@-site-color-text: #343434;
+@-site-color-background: #fff;
+@-site-color-text-alt: #fff;
+@-site-color-background-alt: #000;
+
+@-site-color-border-mid: #3f3f3f;
+@-site-color-border-light: #bfbfbf;
+@-site-color-muted: #777;
+@-site-color-note: #aaa;
+
+@-site-color-link: #333;
+@-site-color-link-hover: #ddd;
+@-site-color-link-active: #000;
+@-site-color-link-visited: #333;
+
+// Code
+@-site-color-code: #333;
+@-site-color-code-background: #f3f3f3;
+@-site-color-pre: #d4d4d4;
+@-site-color-pre-background: #333;
+
+// Selections
+@-site-color-selection: #b3d4fc;
+
+// Messages
+@-site-color-message: #f4ecbb;
+@-site-color-success: #2cde2c;
+@-site-color-warning: #cf8600;
+@-site-color-important: #d00;
+@-site-color-notice: #66b;
+
+// -------------------------------------------------------- //
+// Font Stacks
+// -------------------------------------------------------- //
+
+@-site-typography-display: "Graphik Web", arial, helvetica, Freesans, sans-serif;
+@-site-typography-body: "Helvetica Neue", Arial, Freesans, sans-serif;
+@-site-typography-monospace: "Menlo", "Bitstream Vera Sans", Monaco, "Andale Mono", "Lucida Console", "Droid Mono", monospace;
+@-site-typography-default: @-site-typography-body;
+
+// -------------------------------------------------------- //
+// Breakpoints
+// -------------------------------------------------------- //
+// Use the convention of {size} and {size}-minor to diferentiate
+// between major and minor breakpoints
+// e.g. @-site-breakpoint-medium and @-site-breakpoint-medium-minor
+
+@-site-width-maximum: 60em;
+@-site-breakpoint-large: 60 em; // ~= 16px * 60 = 960
+@-site-breakpoint-medium: 45em;
+@-site-breakpoint-small: 30em;

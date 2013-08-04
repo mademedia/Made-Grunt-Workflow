@@ -1,0 +1,99 @@
+//  -------------------------------------------------------- //
+//  Site Mixins
+//  -------------------------------------------------------- //
+
+//  -------------------------------------------------------- //
+//  Transitions
+//  -------------------------------------------------------- //
+
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+     -moz-transition: all @duration @ease;
+          transition: all @duration @ease;
+}
+.transition-property(@property:all, @duration:0.2s, @ease:ease-out) {
+  -webkit-transition: @property @duration @ease;
+     -moz-transition: @property @duration @ease;
+          transition: @property @duration @ease;
+}
+
+//  -------------------------------------------------------- //
+//  Font Size
+//  -------------------------------------------------------- //
+
+.font-size-rems(@px-size){
+  @rem-size: @px-size / @-lesskit-font-size-unitless;
+  font-size: ~"@{px-size}px";
+  font-size: ~"@{rem-size}rem";
+}
+.font-size(@px-size){
+  .font-size-rems(@px-size);
+}
+
+.font-size-ems(@target-px-size, @context-px-size: @-lesskit-font-size-unitless) {
+  font-size: (@target-px-size / @context-px-size) * 1em;
+}
+
+//  -------------------------------------------------------- //
+//  Truncate
+//  -------------------------------------------------------- //
+
+.truncate(@width:100%) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: @width;
+}
+
+//  -------------------------------------------------------- //
+//  Quotes
+//  -------------------------------------------------------- //
+
+.quotes() {
+  quotes: "\2018" "\2019";
+  &::before{ content: open-quote; }
+  &::after{ content: close-quote; }
+}
+
+//  -------------------------------------------------------- //
+//  Font Smoothing
+//  -------------------------------------------------------- //
+
+.font-smoothing() {
+  -webkit-font-smoothing: antialiased;
+}
+.font-smoothing-reset() {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+//  -------------------------------------------------------- //
+//  Box Sizing
+//  -------------------------------------------------------- //
+
+.box-sizing(@type: border-box) {
+    -webkit-box-sizing: @type;
+       -moz-box-sizing: @type;
+        -ms-box-sizing: @type;
+            box-sizing: @type;
+}
+
+//  -------------------------------------------------------- //
+//  Inline Block
+//  -------------------------------------------------------- //
+
+.inline-block() {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+//  -------------------------------------------------------- //
+//  Opacity
+//  -------------------------------------------------------- //
+
+.opacity(@opacity: 0.5) {
+  opacity: @opacity;
+  @opperc: @opacity * 100;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  filter: ~"alpha(opacity=@{opperc})";
+}

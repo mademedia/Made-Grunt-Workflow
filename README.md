@@ -36,6 +36,7 @@ Running `grunt watch` will watch files for changes and then run relevant tasks w
 
 `grunt build` will typically compile LESS, run JSHint, and build JS files.
 `grunt build:js` will run only the JavaScript build tasks
+`grunt build:production` will run all build tasks plus will minify JavaScript files for production.
 
 ### `grunt less`
 

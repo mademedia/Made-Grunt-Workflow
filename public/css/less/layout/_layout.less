@@ -1,0 +1,59 @@
+/*  ========================================================================== */
+/*  @group Layout */
+/*  ========================================================================== */
+
+/*  ========================================================================== */
+/*  @group Layout Helpers */
+/*  ========================================================================== */
+
+	.l-constrained() {
+
+		width: 96%;
+		max-width: @-site-width-maximum;
+		margin: 0 auto;
+
+		// Prefer nested inline media-query blocks over separate files
+		// as they make breakpoints more modular and the intent clearer.
+		@media only screen and (min-width: @-site-breakpoint-small) {
+			width: 90%;
+		}
+
+	}
+	.l-constrained {
+		.l-constrained();
+	}
+
+/*  ========================================================================== */
+/*  @group Layouts */
+/*  ========================================================================== */
+
+	#primary-content {
+		.columns(12);
+	}
+	#secondary-content { }
+	#tertiary-content { }
+
+	/*  @group Layout - Default 2-column Secondary on left */
+	/*  ========================================================================== */
+
+		.type-page {
+
+			.has-secondary-content #primary-content {
+				.columns(8);
+			}
+			.has-secondary-content #secondary-content {
+				.column-last(4);
+			}
+
+			// Prefer nested inline media-query blocks over separate files
+			// as they make breakpoints more modular and the intent clearer.
+			@media only screen and (max-width: @-site-breakpoint-medium ) {
+				.has-secondary-content #primary-content,
+				.has-secondary-content #secondary-content {
+					float: none;
+					width: 100%;
+					margin: 0 0 .5em 0;
+				}
+			}
+
+		}
